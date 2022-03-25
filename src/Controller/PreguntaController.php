@@ -5,21 +5,25 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class PreguntaController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="portada")
      */
-    public function home(){
-        return new Response('Bienvenido a la portada!');
+    public function home(Environment $twigEnv){
+        $view = $twigEnv->render('home.html.twig');
+        return new Response($view);
+        //return $this->render('home.html.twig');
     }
 
     /**
-     * @Route("/preguntas/{slug}")
+     * @Route("/preguntas/{slug}", name="pregunta")
      */
     public function mostrar($slug){
 
+        dump($slug, $this);
         $res = [
             'Respuesta 1',
             'Respuesta 2',
