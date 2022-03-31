@@ -12,7 +12,7 @@
         {% for re in res %}
             <li class="list-group-item thumbs-like">{{ re }}
                 <a class="bi bi-hand-thumbs-up-fill" data-like="like"></a>
-                <a class="bi bi-hand-thumbs-down-fill" data-like="unlike"></a>
+                <a class="bi bi-hand-thumbs-down-fill" data-like="dislike"></a>
                 <span class="likes-total">7</span>
             </li>
         {% endfor %}
@@ -20,5 +20,5 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('js/reslike.js') }}"></script>
+    {{ encore_entry_script_tags('res2') }}
 {% endblock %}
